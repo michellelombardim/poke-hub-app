@@ -10,10 +10,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        pokemonYellow: '#FFCC00',
-        pokemonRed: '#FF0000',
-        pokemonBlue: '#00AEEF',
-        pokemonGreen: '#4CAF50',
+        pokemonYellow: '#FFB81C',
+        pokemonRed: '#D40000',
+        pokemonBlue: '#0077B3',
+        pokemonGreen: '#388E3C',
       },
     },
   },

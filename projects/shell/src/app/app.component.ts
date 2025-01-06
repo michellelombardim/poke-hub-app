@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  imports: [RouterModule, RouterLink],
+  imports: [RouterModule,],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  standalone: true,
 })
-export class AppComponent {
-  title = 'shell';
-}
+export class AppComponent {}

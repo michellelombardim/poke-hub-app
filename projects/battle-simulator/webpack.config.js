@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'battle-simulator',
 
   exposes: {
-    './Component': './projects/battle-simulator/src/app/app.component.ts',
+    './Routes': './projects/battle-simulator/src/app/app.routes.ts',
   },
 
   shared: {

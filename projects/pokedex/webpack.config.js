@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'pokedex',
 
   exposes: {
-    './Component': './projects/pokedex/src/app/app.component.ts',
+    './Routes': './projects/pokedex/src/app/app.routes.ts',
   },  
 
   shared: {

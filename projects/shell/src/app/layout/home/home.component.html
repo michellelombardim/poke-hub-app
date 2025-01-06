@@ -1,0 +1,89 @@
+<div class="drawer lg:drawer-open drawer-left">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div
+    class="drawer-content flex flex-col items-center justify-between min-h-screen"
+  >
+    <div class="flex items-center justify-start w-full p-4 bg-pokemonYellow">
+      <label
+        for="my-drawer-2"
+        class="btn text-white bg-pokemonBlue hover:bg-pokemonBlue-focus mr-4"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </label>
+
+      <span class="text-2xl font-bold text-black">Pokemon World</span>
+
+      <form [formGroup]="pokemonTypeForm" class="max-w-sm mx-auto">
+        <app-select
+          id="pokemon-type-select"
+          [controlName]="pokemonTypeControl"
+          placeholder="Choose a Pokemon Type"
+          [items]="pokemonTypes"
+        ></app-select>
+      </form>
+    </div>
+
+    <div class="flex-grow flex">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="drawer-side">
+    <label
+      for="my-drawer-2"
+      aria-label="close sidebar"
+      class="drawer-overlay"
+    ></label>
+    <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+      <li>
+        <a
+          routerLink="pokedex"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Pokedex Viewer</a
+        >
+        <ul class="pl-4">
+          <li>
+            <a
+              routerLink="pokedex/stats"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Pokedex Statistics</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a
+          routerLink="battle-simulator"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Battle Simulator</a
+        >
+        <ul class="pl-4">
+          <li>
+            <a
+              routerLink="battle-simulator/list"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >My Record</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,17 +1,27 @@
 import { Route } from '@angular/router';
-import { loadRemoteModule } from '@angular-architects/module-federation-runtime';
+import { loadRemoteEntry, loadRemoteModule } from '@angular-architects/module-federation-runtime';
+import { HomeComponent } from './layout/home/home.component';
 
 export const appRoutes: Route[] = [
   {
-    path: 'pokedex',
-    loadComponent: () =>
-      loadRemoteModule('pokedex', './Component').then((m) => m.AppComponent),
+    path: '',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'pokedex',
+        loadChildren: () =>
+          loadRemoteModule('pokedex', './Routes').then(
+            (m) => m.appRoutes,
+          ),
+      },
+      {
+        path: 'battle-simulator',
+        loadChildren: () =>
+          loadRemoteModule('battle-simulator', './Routes').then(
+              (m) => m.appRoutes,
+          ),
+      },
+    ],
   },
-  {
-    path: 'battle-simulator',
-    loadComponent: () =>
-      loadRemoteModule('battle-simulator', './Component').then(
-        (m) => m.AppComponent,
-      ),
-  },
+  { path: '**', redirectTo: 'pokedex', pathMatch: 'full' },
 ];
