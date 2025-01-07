@@ -6,10 +6,7 @@ module.exports = [
 
   ...baseConfig,
   {
-    rules: {
-      test: /\.m?js$/,
-      include: /node_modules/,
-      type: 'javascript/auto',
-    },
+    // Override or add rules here
+    rules: {},
   },
 ];
