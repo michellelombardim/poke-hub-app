@@ -14,7 +14,6 @@ export class EventListenerService {
       const cloudEvent = customEvent.detail;
       console.log('Received CloudEvent:', cloudEvent);
 
-      // Process the data as needed
       const selectedType = cloudEvent.data;
       console.log(`Selected Pokémon Type: ${selectedType.name}`);
     });
