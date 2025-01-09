@@ -1,0 +1,18 @@
+<div class="pagination-controls flex justify-center items-center mt-16 gap-6">
+  <button
+    class="btn-custom"
+    [disabled]="!isPrevUrl()"
+    (click)="prevPage()"
+    aria-label="Go to previous page"
+  >
+    ← {{ prevLabel() }}
+  </button>
+  <button
+    class="btn-custom"
+    [disabled]="!isNextUrl()"
+    (click)="nextPage()"
+    aria-label="Go to next page"
+  >
+    {{ nextLabel() }} →
+  </button>
+</div>

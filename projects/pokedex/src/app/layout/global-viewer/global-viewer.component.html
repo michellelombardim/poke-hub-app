@@ -1,1 +1,19 @@
-<p>global-viewer works!</p>
+<div class="pokemon-list grid grid-cols-1 md:grid-cols-4 gap-8 p-8">
+  @for (pokemon of pokemons; track pokemon) {
+    <app-card
+      [imageUrl]="'https://img.pokemondb.net/artwork/' + pokemon.name + '.jpg'"
+      [imageName]="pokemon.name"
+      [titleTxt]="pokemon.name"
+      [buttonTxt]="'More Details'"
+      (buttonClick)="goToDetail(pokemon.url)"
+    ></app-card>
+  }
+</div>
+
+<app-pagination
+  [isPrevUrl]="prevUrl !== '' ? true : false"
+  [isNextUrl]="nextUrl !== '' ? true : false"
+  (prevPageChange)="loadPokemons(prevUrl)"
+  (nextPageChange)="loadPokemons(nextUrl)"
+>
+</app-pagination>

@@ -1,0 +1,30 @@
+<div [ngClass]="cardClass()" class="card transition-shadow duration-300">
+  @if (imageUrl()) {
+    <figure class="px-6 pt-6">
+      <img
+        [src]="imageUrl()"
+        alt="{{ imageName() }}"
+        class="rounded-xl w-24 h-24 object-cover"
+      />
+    </figure>
+  }
+  <div class="card-body items-center text-center">
+    <h2 class="card-title capitalize text-lg font-bold">
+      {{ titleTxt() | capitalize }}
+    </h2>
+    @if (descriptionTxt()) {
+      <p>{{ descriptionTxt() }}</p>
+    }
+    @if (buttonTxt()) {
+      <div class="card-actions">
+        <button
+          class="btn btn-primary"
+          [attr.aria-label]="buttonTxt() || 'Card button'"
+          (click)="buttonClickAction()"
+        >
+          {{ buttonTxt() }}
+        </button>
+      </div>
+    }
+  </div>
+</div>
